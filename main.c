@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 
     float tarifa = 0, distancia = 0, costo, pago, cambio, t1 = 0, d1 = 0;
     int opc, opc2;
-    int c1, c2, c5, ce;
+    int c1, c2, c5, c05, c01, c005, c001, ce;
 
     do
     {
@@ -86,15 +86,24 @@ int main(int argc, char *argv[])
 
                 if (pago > costo)
                 {
-                    ce = cambio + 0.5;
-                    c5 = ce / 5;
+                    ce = cambio * 100;
+                    c5 = ce / 500;
+                    ce %= 500;
+                    c2 = ce / 200;
+                    ce %= 200;
+                    c1 = ce / 100; 
+                    ce %= 100;
+                    c05 = ce / 50;
+                    ce %= 50;
+                    c01 = ce / 10;
+                    ce %= 10;
+                    c005 = ce / 5;
                     ce %= 5;
-                    c2 = ce / 2;
-                    ce %= 2;
-                    c1 = ce;
+                    c001 = ce / 1;
+                    ce %= 1;
 
                     printf("Su cambio es de: %.2f\n", cambio);
-                    printf("El cambio se entrega con %d monedas de 5, %d monedas de 2 y %d monedas de 1\n", c5, c2, c1);
+                    printf("El cambio se entrega con %d monedas de 5, %d monedas de 2, %d monedas de 1, %d monedas de 50 centavos, %d monedas de 10 centavos, %d monedas de 5 centavos y %d monedas de 1 centavo\n", c5, c2, c1, c05, c01, c005, c001);
                 }
 
                 if (pago == costo)
